@@ -1,0 +1,28 @@
+# In case you want to configure tokens again:
+# https://gist.github.com/willprice/e07efd73fb7f13f917ea
+language: node_js
+node_js:
+- 10.16.0
+if: branch IN (master, develop)
+before_deploy:
+- git config --local user.name "German Robayo"
+- git config --local user.email "germanrobayo33@gmail.com"
+- git checkout $TRAVIS_BRANCH
+- npm version minor -m "[skip travis] Update to %s"
+- git remote set-url origin https://${GH_TOKEN}@github.com/t-creo/front-end.git
+- git push origin $TRAVIS_BRANCH
+- git push --tags
+- zip t-creo.zip -r build/
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: "dEljpQE4mqnlXxwJM7MRbl/QKeKymZidf/lC+I+1dr1jKV/hGCwD9W1xzib2R3qGRxNz6Iach2VB0xfNfzCxIGBh0ZosEWfaepCDkq4hF2TQh4mcKDzFHCZPhW5KWGSYG2B21d4Vecp9dy+i6cMZ+9x+dQHDaI6bLpucFfBXt4VvXhsfRruR6GSMHR4LNnDuIqK2+NuBpB8fui3ZuwmJw9AmqhpWkiD4SUtca0tMhojwOVJfL5d4Ks0cJb3WYdZdE2hb38kOko5djYROJnMEcSDBR7HQDXzStaPOvSxvMNyljr7/TedUW1hn8CKh1UTt2/onqrvmohKIzQ5LMgBOihR74L2/gEokP/BquijNx2Anm/PceLdWIUFPn1vmM4JEQ1pJ3NAVfAscuE+UyRJvKxSaAYi6Q6G1W+TYbHoB9p2EFIYuF2aCu5NpQQEA4xMHVS3hMvCUAZQQQQN59oIm6t6WlAifJHg8TWMyUSxiIfqHEU2ERnv6Y61waYcVdcr1wJMhQoFSReURUzyMODabmvkr1QJnJunNi4G/w1LBlqLja3fft4QxX6kbCYLbsddgxDgnlBfopTL4JRHIXKhEwaKLm7BS92aSVRbUW1HU5RcUdId3/0VCV0Xg9fWJC43XdU14bwghs1AMAa3YnJm5eYaltiO0OFJ+ceZy1ihaiLU="
+  file: t-creo.zip
+  on:
+    repo: t-creo/front-end
+    branch: develop
+    tag: true
+env:
+  global:
+    secure: PEdrlfAspssL5qdwznZejLMHewH4XxzYgdvDBNrTjmFeap9LtDslApb1yvaGZYPl28338hNIRFoh3erWINgH93m8qVtHtwFS65iAEwXGLL7Cgs24fL+72xMz7Fhcl+KqcmLtZ913wjLuDR/+iTe7WuHbMuBWmcpQkXLxP9xt93KCnh51Rlc/TMkvTClDjW0mLzbSjlJZ/I35XLCRpuU/TXdq6v7lknNc1nUxITZYZFUxbYVA1Q+DhZPP2edwgjBSGbEAsiIvKxYoVL1dMzFaCPSB4giBxyW7jmiozse9SVxE5olJuz0QAQTrWJni3C16FRfSj5UHbUjRmrguaUc340RzyvTucOu5sHM6ML9pJX+UI7zdS04RtxYH+UsYYM7ZkCEJGWvZtl6UA7Mv8LjdLJUkfySAi9aXeM7fY8+RPJKVnSsgC+n6knRdNXfbEopQ/KAgn20j71UJHO5OeftC54CmMtds6HRpmM1P85ehiGhRJQBLISU/YBt67pojXukDnfZ2JDxLITfr0GEq78v6ehws2aUcp38aKmlMHqOWBH4Yj7yabToThwXLGdS/C6SH6p3YLA9hsGeJg522y2pjI1duZT45Ynxg0DzM4hDLQoptJE2uSRtGK/2VLPlMaS9yHPkmwKGLHZj9pvIvRZPTJ/E5ixOz6RV04VcJRB+/c6U=

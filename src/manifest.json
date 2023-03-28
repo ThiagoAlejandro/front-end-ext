@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "T-CREo",
+  "version": "4.0",
+  "description": "Check for information credibility",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "declarativeContent",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://localhost/*",
+    "http://world-white-web.herokuapp.com/*",
+    "http://t-creo.herokuapp.com/*",
+    "http://107.170.90.209/*"
+  ],
+  "options_page": "options.html",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "get_started16.png",
+      "32": "get_started32.png",
+      "48": "get_started48.png",
+      "128": "get_started128.png"
+    }
+  },
+  "icons": {
+    "16": "get_started16.png",
+    "32": "get_started32.png",
+    "48": "get_started48.png",
+    "128": "get_started128.png"
+  }
+}

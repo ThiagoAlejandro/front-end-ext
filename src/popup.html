@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <title> T-CREo </title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="title">T-CREo</h2>
+      <div id='usrform0' class="row">
+        <div class="col-9">
+          <div id="usrform" action="" method="get" >
+            <div class="form-group">
+              <label class="labels" for="tweet">Text to Analyze</label>
+              <textarea
+                id="text"
+                class="form-control"
+                name="tweet"
+                rows="2"
+                cols="40"
+                form="usrform"
+              >I'm sorry professor, but I must not tell lies by Thiago</textarea>
+            </div>
+            <select id="language">
+              <option value="es">ES</option>
+              <option value="en" selected>EN</option>
+              <option value="fr">FR</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <label class="labels">Credibility</label>
+            <p id="credibility" class="flex-center">0%</p>
+          </div>
+        </div>
+      
+        <div class="flex-center">
+          <button
+            id="submitButton"
+            type="submit"
+            class="btn btn-primary"
+          >Verify</button>
+        </div>
+      </div>      
+      <hr id="firstHorBar">
+      <h6 id="currentPage" class="flex-center">
+      </h6>
+      <div id="PageSensitiveButtons" class="flex-center">
+        <button
+          id="VerifyPageButtonScraperTW"
+          type="submit"
+          class="btn btn-primary"
+        >Verify Page Tweets</button>
+        <button
+          id="VerifyPageButtonTwitterApi"
+          type="submit"
+          class="btn btn-primary"
+        >Verify Page Tweets with Twitter Api</button>
+      </div>
+
+      <!--Inicia nueva credibilidad de usuario-->
+      <div class="row">
+        <div class="col-9">
+        <div id="usrform1" style="display:none;" action="" method="get">
+          <div class="form-group">
+            <br>  
+            <label class="labels" style="text-align: center;" for="text-1"><b>Credibility for <a id="usertuit"></a>´s Tweets</b></label><br>
+            <br>
+            <label class="labels" for="text-2">User Credibility:<a id="usertuit1"></a></label><br>
+            <label class="labels" for="text-3">Social Credibility:</label><br>
+            <label class="labels" for="text-4">Historic Credibility:</label><br>
+            <label class="labels" for="text-5">Tweet 1:</label><br>
+              <textarea
+                id="myDIV"
+                style="border:1px solid black;"
+                class="form-control"
+                name="tuit1"
+                rows="2"
+                cols="40"
+                form="usrform"
+                disabled="true"
+                >Esto debe leer</textarea>
+          </div>
+          <div class="container">
+            <div class="row" style="float:left; width: 33%;">
+              <label class="labels" style="text-align: center;">Language</label>
+              <p id="languagetw1" class="flex-center" style="text-align: center;">Es</p>
+            </div>
+            <div class="row" style="float:left; width: 32%;">
+              <label class="labels" style="text-align: center;">Credibility</label>
+              <p id="credibility1" class="flex-center" style="text-align: center;">0%</p>
+            </div>
+            <div class="row" style="float:left; width: 33%;">
+              <label class="labels" style="text-align: center;">New Credibility</label>
+              <p id="newcred1" class="flex-center" style="text-align: center;">0%</p>
+            </div>
+          </div>
+          <label class="labels" for="text-6">Tweet 2:</label><br>
+          <textarea
+              id="myDIV1"
+              style="border:1px solid black;"
+              class="form-control"
+              name="tuit2"
+              rows="2"
+              cols="40"
+              form="usrform"
+              disabled="true"
+              >Esto debe leer</textarea>
+
+          <div class="container">
+            <div class="row" style="float:left; width: 33%;">
+              <label class="labels" style="text-align: center;">Language2</label>
+              <p id="languagetw2" class="flex-center" style="text-align: center;">Es</p>
+            </div>
+            <div class="row" style="float:left; width: 32%;">
+              <label class="labels" style="text-align: center;">Credibility2</label>
+              <p id="credibility2" class="flex-center" style="text-align: center;">0%</p>
+            </div>
+            <div class="row" style="float:left; width: 33%;">
+              <label class="labels" style="text-align: center;">New Credibility2</label>
+              <p id="newcred2" class="flex-center" style="text-align: center;">0%</p>
+            </div>
+          </div>
+          <label class="labels" for="text-7">Tweet 3:</label><br>
+          <textarea
+              id="myDIV2"
+              style="border:1px solid black;"
+              class="form-control"
+              name="tuit3"
+              rows="2"
+              cols="40"
+              form="usrform"
+              disabled="true"
+              >Esto debe leer</textarea>
+          <div class="container">
+            <div class="row" style="float:left; width: 33%;">
+              <label class="labels" style="text-align: center;">Language</label>
+              <p id="languagetw3" class="flex-center" style="text-align: center;">Es</p>
+            </div>
+            <div class="row" style="float:left; width: 32%;">
+              <label class="labels" style="text-align: center;">Credibility</label>
+              <p id="credibility3" class="flex-center" style="text-align: center;">0%</p>
+            </div>
+            <div class="row" style="float:left; width: 33%;">
+              <label class="labels" style="text-align: center;">New Credibility</label>
+              <p id="newcred3" class="flex-center" style="text-align: center;">0%</p>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+      <!--finaliza nueva credibilidad de usuario-->
+    </div>
+  </div>
+
+      <div id="PageSensitiveButtonsFB" class="flex-center">
+        <button
+          id="VerifyPageButtonScraperFB"
+          type="submit"
+          class="btn btn-primary"
+        >Verify Page</button>
+      </div>
+      <hr id="secondHorBar">
+      <div class="spinner-container" id="sp-content">
+        <img class="img-www" src="images/get_started48.png" alt="">
+        <p class="saving"><span class="span" id="span-one">.</span><span class="span" id="span-two">.</span><span class="span" id="span-three">.</span></p>
+    </div>
+    </div>
+  </body>
+</html>
